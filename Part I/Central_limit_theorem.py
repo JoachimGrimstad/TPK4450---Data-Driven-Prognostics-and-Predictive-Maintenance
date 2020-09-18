@@ -14,6 +14,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Seed
+np.random.seed(4450)
+
 # Data Generation
 def generate_uniform_data(sample_size, num_samples):
     data = []
@@ -39,7 +42,7 @@ def generate_exponential_data(sample_size, num_samples):
 
 # Figure
 fig_a = plt.figure(figsize=(15,15)) # Creates a figure a
-fig_a.suptitle('X ~ U(0 , 100)', fontsize=16)
+fig_a.suptitle('Underlying distribution: X ~ U(0 , 100)', fontsize=16)
 ax1 = fig_a.add_subplot(1, 2, 1) # Creates a subplot ax1 on first half of the figure fig_a
 ax1.set_title('Histogram')
 ax1.set_ylabel('Frequency')
@@ -51,7 +54,7 @@ ax2.set_xlabel('X')
 
 
 fig_b = plt.figure(figsize=(15,15)) # Creates a figure b
-fig_b.suptitle('X ~ Exp(λ), λ = 0.05', fontsize=16)
+fig_b.suptitle('Underlying distribution: X ~ Exp(λ),  λ = 0.05', fontsize=16)
 bx1 = fig_b.add_subplot(1, 2, 1) # Creates a subplot bx1 on first half of the figure fig_b
 bx1.set_title('Histogram')
 bx1.set_title('Histogram')
@@ -75,13 +78,17 @@ sns.distplot(uniform_data_n_10, ax = ax2, hist = False, color = 'red', label = '
 # Exponential distribution:
 exponential_data_n_1 = generate_exponential_data(1, 100000)
 exponential_data_n_5 = generate_exponential_data(5, 20000)
-exponential_data_n_25 = generate_exponential_data(25, 4000)
+exponential_data_n_10 = generate_exponential_data(10, 10000)
 sns.distplot(exponential_data_n_1, ax = bx1, norm_hist = False, kde = False, color = 'blue', label = 'n = 1')
 sns.distplot(exponential_data_n_5, ax = bx1, norm_hist = False, kde = False, color = 'green', label = 'n = 5')
-sns.distplot(exponential_data_n_25, ax = bx1, norm_hist = False, kde = False, color = 'purple', label = 'n = 25')
+sns.distplot(exponential_data_n_10, ax = bx1, norm_hist = False, kde = False, color = 'purple', label = 'n = 25')
 sns.distplot(exponential_data_n_1, ax = bx2, hist = False, color = 'blue', label = 'n = 1')
 sns.distplot(exponential_data_n_5, ax = bx2, hist = False, color = 'green', label = 'n = 5')
-sns.distplot(exponential_data_n_25, ax = bx2, hist = False, color = 'purple', label = 'n = 25')
+sns.distplot(exponential_data_n_10, ax = bx2, hist = False, color = 'red', label = 'n = 10')
 
 # Show plots
 plt.show()
+
+# Test
+print(f'uniform n = 10, μ = {np.mean(uniform_data_n_10)} and σ = {np.std(uniform_data_n_10)}')
+print(f'exponential n = 10, μ = {np.mean(exponential_data_n_10)} and σ = {np.std(exponential_data_n_10)}')
