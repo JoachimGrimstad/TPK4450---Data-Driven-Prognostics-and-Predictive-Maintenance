@@ -3,7 +3,7 @@ title:          Task_c_8
 version:        1.0.0
 fileName:       Task_c_8.py 
 author:         Joachim Nilsen Grimstad
-description:    Just a small script to plot task a 3), semesterwork I, in
+description:    Just a small script to plot task b 8), semesterwork I, in
                 TPK4450 - Data Driven Prognostics and Predictive Maintenance                               
 license:        GNU General Public License v3.0 https://www.gnu.org/licenses/gpl-3.0.en.html 
                 
@@ -16,21 +16,25 @@ from scipy.stats import norm
 from math import sqrt, log
 import seaborn as sns
 
+# Seed
 np.random.seed(4450)
 
+# Parameters
 samples = []
 μ0 = 0
 σ = 2
 n = 10
 X_max = 1.04038935
 μ_i = np.linspace(μ0,σ,21)
+
+# Draw samples
 for μ in μ_i:
     samples.append(np.random.normal(μ, σ, n).mean())
 
-# Classifications
+# Container
 classification = []
 
-#Classification
+#Classification of samples
 for sample in samples:
     if sample >= X_max:
         classification.append(1)
@@ -38,6 +42,7 @@ for sample in samples:
         classification.append(0)
 shift = np.linspace(0,20,21)
 
+# Plot
 color_palatte = {1: 'red', 0: 'blue'}
 sns.scatterplot(x = shift, y = classification, hue = classification, palette = color_palatte)
 plt.legend([],[], frameon=False)

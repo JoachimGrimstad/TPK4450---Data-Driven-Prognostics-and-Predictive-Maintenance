@@ -3,7 +3,7 @@ title:          Task_b_4
 version:        1.0.0
 fileName:       Task_b_4.py 
 author:         Joachim Nilsen Grimstad
-description:    Just a small script to plot task a 3), semesterwork I, in
+description:    Just a small script to plot task b 4), semesterwork I, in
                 TPK4450 - Data Driven Prognostics and Predictive Maintenance                               
 license:        GNU General Public License v3.0 https://www.gnu.org/licenses/gpl-3.0.en.html 
                 

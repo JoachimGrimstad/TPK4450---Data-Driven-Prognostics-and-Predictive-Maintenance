@@ -3,7 +3,7 @@ title:          Task_b_7
 version:        1.0.0
 fileName:       Task_b_7.py 
 author:         Joachim Nilsen Grimstad
-description:    Just a small script to plot task a 3), semesterwork I, in
+description:    Just a small script to plot task b 7), semesterwork I, in
                 TPK4450 - Data Driven Prognostics and Predictive Maintenance                               
 license:        GNU General Public License v3.0 https://www.gnu.org/licenses/gpl-3.0.en.html 
                 
@@ -20,6 +20,7 @@ from math import sqrt, log
 σ = 2
 n = 10
 
+# Container
 alpha = np.zeros(1000)
 beta = np.zeros(1000)
 lambda_vector = np.linspace(1e-10, 4, 1000)
@@ -27,12 +28,14 @@ lambda_vector = np.linspace(1e-10, 4, 1000)
 def integral_limit(i):
     return (1/5) * log(lambda_vector[i]) + 1
 
+# Numerical Integration
 for i in range(len(alpha)):
     alpha[i] = 1 - norm.cdf(integral_limit(i), μ0, σ/sqrt(n))
     beta[i] = norm.cdf(integral_limit(i), μ1, σ/sqrt(n))
 
 detection = 1 - beta
 
+# Plot
 plt.plot(alpha, detection)
 plt.xlabel('Pr(False alarm)')
 plt.ylabel('PR(Detection)')

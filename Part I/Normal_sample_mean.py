@@ -26,7 +26,7 @@ def generate_normal_data(sample_size, num_samples):
     np.array(data)
     return data
 
-# Figure
+# Figures
 fig_a = plt.figure(figsize=(15,15)) # Creates a figure a
 ax1 = fig_a.add_subplot(1, 2, 1) # Creates a subplot ax1 on first half of the figure fig_a
 ax1.set_title('Histogram')
@@ -37,6 +37,7 @@ ax2.set_title('Probability Density Function using Kernel Density Estimation')
 ax2.set_ylabel('Probability Density')
 ax2.set_xlabel('X')
 
+# normal distribution plots
 normal_data_n_1 = generate_normal_data(1, 100000)
 normal_data_n_5 = generate_normal_data(5, 20000)
 normal_data_n_10 = generate_normal_data(10, 10000)
@@ -47,8 +48,3 @@ sns.kdeplot(normal_data_n_1, ax = ax2, color = 'blue', label = 'n = 1')
 sns.kdeplot(normal_data_n_5, ax = ax2, color = 'green', label = 'n = 5')
 sns.kdeplot(normal_data_n_10, ax = ax2, color = 'red', label = 'n = 10')
 plt.show()
-
-print(f'normal n = 1, μ = {np.mean(normal_data_n_1)} and σ = {np.std(normal_data_n_1)}')
-print(f'normal n = 5, μ = {np.mean(normal_data_n_5)} and σ = {np.std(normal_data_n_5)}')
-print(f'normal n = 10, μ = {np.mean(normal_data_n_10)} and σ = {np.std(normal_data_n_10)}')
-

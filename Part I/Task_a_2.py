@@ -16,6 +16,7 @@ import seaborn as sns
 from math import sqrt
 from scipy.stats import norm
 
+# Parameters
 μ = 0
 σ = 2
 n = 10

@@ -40,7 +40,7 @@ def generate_exponential_data(sample_size, num_samples):
     np.array(data)
     return data
 
-# Figure
+# Figures
 fig_a = plt.figure(figsize=(15,15)) # Creates a figure a
 fig_a.suptitle('Underlying distribution: X ~ U(0 , 100)', fontsize=16)
 ax1 = fig_a.add_subplot(1, 2, 1) # Creates a subplot ax1 on first half of the figure fig_a
@@ -89,6 +89,3 @@ sns.distplot(exponential_data_n_10, ax = bx2, hist = False, color = 'red', label
 # Show plots
 plt.show()
 
-# Test
-print(f'uniform n = 10, μ = {np.mean(uniform_data_n_10)} and σ = {np.std(uniform_data_n_10)}')
-print(f'exponential n = 10, μ = {np.mean(exponential_data_n_10)} and σ = {np.std(exponential_data_n_10)}')
