@@ -19,6 +19,8 @@ import seaborn as sns
 # Seed
 np.random.seed(4450)
 
+
+
 # Parameters
 samples = []
 μ0 = 0
